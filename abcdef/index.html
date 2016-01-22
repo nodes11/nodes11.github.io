@@ -41,13 +41,6 @@
 		<button id="helpbutton" role="button" class="btn btn-primary">Map Key</button>
     <div id="sidebar" class="resize">
         <h1><font size="7"><b>Map Key</b></font></h1>
-				<MarkerKey>
-						<font size="6"><b><u>Markers</u></b></font>
-						<br>
-						<img src="lib/images/marker-icon_gray.png" alt="Gray Marker" class="resize"><font size="5"> Residence Hall</font><br>
-						<img src="lib/images/marker-icon.png" alt="Blue Marker" class="resize"><font size="5"> University Apartment</font><br>
-						<img src="lib/images/marker-icon_red.png" alt="Red Marker" class="resize"><font size="5"> Commercial Apartment</font><br>
-				</MarkerKey>
     </div>
 
     <script>
@@ -279,8 +272,21 @@ valueLayers.push({type:"Type", title:"Residence Hall"});
             onEachFeature: function (feature, layer) {
               var popup = '';
               for (var key in feature.properties) {
-                  var title = mapCsv.getPropertyTitle(key);
-                  popup += '<b>'+title+':'+' '+'</b>'+feature.properties[key]+'<br />';
+									var title = mapCsv.getPropertyTitle(key);
+									if (title != "Pets" && feature.properties[key] != "No"){
+										if (title == "Price" && feature.properties[key] != "N/A"){
+											t = feature.properties[key]
+											t = parsePrice(t);
+											popup += '<b>'+title+':'+' '+'</b>'+t+" per month"+'<br />';
+										}
+										else{
+											popup += '<b>'+title+':'+' '+'</b>'+feature.properties[key]+'<br />';
+										}
+									}
+									else if (title == "Pets") {
+										popup += '<b>'+title+':'+' '+'</b>'+feature.properties[key]+'<br />';
+									}
+
 									if (feature.properties[key] == "University Apartment"){layer.setIcon(blueIcon);}
 									if (feature.properties[key] == "Residence Hall"){layer.setIcon(grayIcon);}
 									if (feature.properties[key] == "Commercial Apartment"){layer.setIcon(redIcon);}
@@ -323,7 +329,6 @@ valueLayers.push({type:"Type", title:"Residence Hall"});
 					//Sidebar created by L.Control.Sidebar (check them out on Gitbub)
 					//Make the sidebar to display the 'about'
           var sidebar = L.control.sidebar('sidebar', {position: 'left'}).addTo(map);
-					sidebar.show();
 
 					//Declares, adds and sets the functionality for the help button
 					var resetButton = new L.Control.Button(L.DomUtil.get('resetButton')).addTo(map);

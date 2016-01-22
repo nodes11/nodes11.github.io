@@ -177,3 +177,20 @@ function readfile(f) {
 
   return text;
 }
+//Parse the Price value
+function parsePrice(p){
+  var np = "";
+  j = 0;
+  np += '$';
+  for (var i in p){
+    if (p[i] == "-"){
+      np += p[i];
+      np += '$'
+    }
+    else{
+      np += p[i];
+    }
+  }
+
+  return np;
+}
