@@ -1,0 +1,284 @@
+/* © Copyright 2015. Wovax, LLC. */
+
+.wx-nav-links {
+	text-align: center;
+}
+
+/* Grid
+ * ========================================================================== */
+
+@media only screen and (min-width: 800px) {
+
+	.five-sixths,
+	.four-sixths,
+	.four-fifths,
+	.one-fifth,
+	.one-fourth,
+	.one-half,
+	.one-sixth,
+	.one-third,
+	.three-fourths,
+	.three-fifths,
+	.three-sixths,
+	.two-fourths,
+	.two-fifths,
+	.two-sixths,
+	.two-thirds {
+		float: left;
+		margin-left: 3.448275862069%;
+	}
+
+	.one-half,
+	.three-sixths,
+	.two-fourths {
+		width: 48.275862068966%;
+	}
+
+	.one-third,
+	.two-sixths {
+		width: 31.034482758621%;
+	}
+
+	.four-sixths,
+	.two-thirds {
+		width: 65.51724137931%;
+	}
+
+	.one-fourth {
+		width: 22.413793103448%;
+	}
+
+	.three-fourths {
+		width: 74.137931034483%;
+	}
+
+	.one-fifth {
+		width: 17.241379310345%;
+	}
+
+	.two-fifths {
+		width: 37.931034482759%;
+	}
+
+	.three-fifths {
+		width: 58.620689655172%;
+	}
+
+	.four-fifths {
+		width: 79.310344827586%;
+	}
+
+	.one-sixth {
+		width: 13.793103448276%;
+	}
+
+	.five-sixths {
+		width: 82.758620689655%;
+	}
+
+	.first {
+		clear: both;
+		margin-left: 0;
+	}
+}
+
+/* Wovax Search Filter
+ * ========================================================================== */
+
+.wovax-search-form {
+	background: #f2f2f2;
+	padding: 16px;
+	margin-bottom: 40px;
+	display: inline-block;
+	width: 100%;
+}
+
+.wovax-search-form .wovax-search-section {
+	padding: 8px;
+	position: relative;
+}
+
+.wovax-search-form .wovax-search-section select,
+.wovax-search-form .wovax-search-section input {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+}
+
+.wovax-search-section .wovax-search-label {
+	font-weight: bold;
+	text-transform: uppercase;
+	font-size: 12px;
+}
+
+.wovax-search-form .wovax-search-form input[type="submit"] {
+	width: 100%;
+}
+
+@media only screen and (min-width: 800px) {
+
+	.wovax-search-form {
+		padding-bottom: 0;
+	}
+
+	.wovax-search-section .wovax-search-label {
+		position: absolute;
+		opacity: 0;
+		top: 50%;
+		margin-top: -10px;
+		margin-left: 6px;
+		z-index: 0;
+		transition: all .15s ease-out;
+	}
+
+	.wovax-search-section:hover .wovax-search-label {
+		top: 0px;
+		opacity: 1;
+	}
+
+	.wovax-search-form .wovax-search-section {
+		width: 100%;
+		margin-bottom: 16px;
+	}
+
+	.col-2.wovax-search-form .wovax-search-section,
+	.col-3.wovax-search-form .wovax-search-section,
+	.col-4.wovax-search-form .wovax-search-section,
+	.col-5.wovax-search-form .wovax-search-section,
+	.col-6.wovax-search-form .wovax-search-section {
+		float: left;
+		padding: 8px;
+	}
+
+	.col-2.wovax-search-form .wovax-search-section {
+		width: 50%;
+	}
+
+	.col-3.wovax-search-form .wovax-search-section {
+		width: 33.3333333%;
+	}
+
+	.col-4.wovax-search-form .wovax-search-section {
+		width: 25%;
+	}
+
+	.col-5.wovax-search-form .wovax-search-section {
+		width: 20%;
+	}
+
+	.col-6.wovax-search-form .wovax-search-section {
+		width: 16.6666667%;
+	}
+
+	.wovax-search-form .wovax-search-section:first-child,
+	.col-3.wovax-search-form .wovax-search-section:nth-of-type(4),
+	.col-4.wovax-search-form .wovax-search-section:nth-of-type(5),
+	.col-5.wovax-search-form .wovax-search-section:nth-of-type(6),
+	.col-6.wovax-search-form .wovax-search-section:nth-of-type(7),
+	.first {
+		clear: both;
+		margin-left: 0;
+	}
+	
+	.sidebar .col-2.wovax-search-form .wovax-search-section,
+    .sidebar .col-3.wovax-search-form .wovax-search-section,
+    .sidebar .col-4.wovax-search-form .wovax-search-section,
+    .sidebar .col-5.wovax-search-form .wovax-search-section,
+    .sidebar .col-6.wovax-search-form .wovax-search-section {
+        float: none;
+        width: 100%;
+    }
+	
+	.aside .col-2.wovax-search-form .wovax-search-section,
+    .aside .col-3.wovax-search-form .wovax-search-section,
+    .aside .col-4.wovax-search-form .wovax-search-section,
+    .aside .col-5.wovax-search-form .wovax-search-section,
+    .aside .col-6.wovax-search-form .wovax-search-section {
+        float: none;
+        width: 100%;
+    }
+
+	.sidebar .wovax-search-form {
+		padding-bottom: 20px;
+	}
+
+	.sidebar .wovax-search-form .wovax-search-section {
+		margin-bottom: 0;
+	}
+
+	.sidebar .wovax-search-form .wovax-search-section .wovax-search-label {
+		position: relative;
+		opacity: 1;
+		margin-top: 0;
+		margin-left: 0;
+	}
+
+}
+
+/* Property Listings
+ * ========================================================================== */
+
+.property {
+	position: relative;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+.property .address {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.property .city {
+	font-size: 14px;
+	margin: 0;
+}
+
+.property .city,
+.property .price {
+	padding-right: 100px;
+	width: 100%;
+	float: left;
+}
+
+.property .property-details {
+	position: absolute;
+	right: 0;
+	border-left: 2px solid #f2f2f2;
+	padding-left: 16px;
+	width: 100px;
+}
+
+.property .property-details li {
+	list-style: none;
+	font-size: 12px;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+/* Sort / Orderby Styling
+ * ========================================================================== */
+ 
+ .wx-sort-text-div {
+	display: inline-block;
+}
+
+.wx-orderby-select-div {
+	width: 250px;
+	display: inline-block;
+	margin-bottom: 15px;
+}
+
+.wx-orderby-submit {
+	margin-bottom: 15px;
+	display: inline-block;
+}
+
+.wovax-orderby-form {
+	line-height: normal;
+}
+
+.wx-sort-container {
+	float: right;
+	display: block;
+}
