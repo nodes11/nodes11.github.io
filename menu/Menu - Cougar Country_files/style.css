@@ -1,0 +1,296 @@
+/*
+Theme Name: Parker
+Theme URI: https://wovax.com/
+Description: Parker is a Thematic 2.0.0 child theme developed by Wovax, LLC. Contact Wovax for support.
+Author: The Wovax Team
+Author URI: https://wovax.com/
+Template: thematic
+Version: 1.0.1
+Tags: white, three-columns, two-columns, fixed-width, theme-options, left-sidebar, right-sidebar, threaded-comments, sticky-post, microformats
+*/
+
+/* Fonts */
+
+@font-face {
+  font-family:"ultra";
+  src:url('assets/fonts/ultra-light.eot');
+  src:local('☺'), url('assets/fonts/ultra-light.woff') format('woff'), url('assets/fonts/ultra-light.svg') format('svg');
+  -webkit-font-smoothing:antialiased;
+  text-shadow:1px 1px 1px rgba(0,0,0,0.004);
+}
+
+@font-face {
+  font-family:"light";
+  src:url('assets/fonts/light.eot');
+  src:local('☺'), url('assets/fonts/light.woff') format('woff'), url('assets/fonts/light.svg') format('svg');
+  -webkit-font-smoothing:antialiased;
+  text-shadow:1px 1px 1px rgba(0,0,0,0.004);
+}
+
+@font-face {
+  font-family:"bold";
+  src:url('assets/fonts/medium_bold.eot');
+  src:local('☺'), url('assets/fonts/medium_bold.woff') format('woff'), url('assets/fonts/medium_bold.svg') format('svg');
+  -webkit-font-smoothing:antialiased;
+  text-shadow:1px 1px 1px rgba(0,0,0,0.004);
+}
+
+.site-title a {
+  font-family:"ultra";
+}
+
+
+body,
+.tagline {
+  font-family:"light";
+}
+
+.sf-menu .current-menu-item > a,
+.sf-menu .current-menu-parent > a,
+.sf-menu .current-menu-ancestor > a,
+.sf-menu .current-post-ancestor > a,
+.sf-menu .current_page_item > a,
+.sf-menu .current_page_ancestor > a,
+.sf-menu .current_page_parent > a,
+.entry-meta a,
+.entry-utility a,
+.widgettitle,
+#siteinfo a {
+  font-family:"bold";
+}
+
+/* Colors */
+
+.site-header {
+  background:#000;
+}
+
+.site-title a,
+.site-title a:hover,
+.sf-menu a,
+.sf-menu a:visited,
+.top-menu li a:visited,
+h3.menu-toggle,
+.toggled-on .sf-menu a,
+.toggled-on .sf-menu a:visited  {
+  color:#fff;
+}
+
+.tagline {
+  color:#777;
+}
+
+body,
+.sf-menu a:hover,
+.entry-meta a,
+.entry-utility a,
+.widgettitle,
+#siteinfo,
+#siteinfo a {
+  color:#000;
+}
+
+.sf-menu li li,
+.sf-menu li li li,
+.sf-menu li li a,
+.sf-menu li li li a {
+  background: #000;
+}
+
+.sf-menu li,
+.sf-menu li a,
+.toggled-on .sf-menu li a:hover,
+.toggled-on .sf-menu ul a:hover {
+  background:transparent;
+}
+
+a:active,
+a:hover,
+.sf-menu ul a:hover,
+.page-title a:active,
+.page-title a:hover,
+.entry-title a:active,
+.entry-title a:hover,
+.entry-meta a:active,
+.entry-meta a:hover,
+.page-link a:active,
+.page-link a:hover,
+.entry-utility a:active,
+.entry-utility a:hover,
+.navigation a:active,
+.navigation a:hover,
+#comments-list .comment-meta a:active,
+#comments-list .comment-meta a:hover,
+.comment-reply-link a:active,
+.comment-reply-link a:hover,
+.comment-navigation a:active,
+.comment-navigation a:hover,
+#respond .required,
+.aside .current-menu-item a,
+.aside .current_page_item a,
+.aside .current-menu-item .menu-item a:hover,
+.aside .current-menu-item .menu-item a:active,
+.aside .current_page_item .menu-item a:hover,
+.aside .current_page_item .menu-item a:active,
+.aside a:active,
+.aside a:hover,
+#siteinfo a:active,
+#siteinfo a:hover
+/*.sf-menu .current-menu-item > a,
+.sf-menu .current-menu-parent > a,
+.sf-menu .current-menu-ancestor > a,
+.sf-menu .current-post-ancestor > a,
+.sf-menu .current_page_item > a,
+.sf-menu .current_page_ancestor > a,
+.sf-menu .current_page_parent > a,
+.toggled-on .sf-menu li a:hover,
+.toggled-on .sf-menu ul a:hover,
+.toggled-on .sf-menu .current-menu-item > a,
+.toggled-on .sf-menu .current-menu-parent > a,
+.toggled-on .sf-menu .current-menu-ancestor > a,
+.toggled-on .sf-menu .current-post-ancestor > a,
+.toggled-on .sf-menu .current_page_item > a,
+.toggled-on .sf-menu .current_page_ancestor > a,
+.toggled-on .sf-menu .current_page_parent > a*/ {
+  color:#bc4a4a;
+}
+
+/* Header */
+
+.branding {
+  padding-top: 80px;
+  padding-bottom: 28px;
+}
+
+.site-title,
+.tagline {
+  text-align:center;
+  text-transform:uppercase;
+}
+
+.site-title a {
+  font-size:2.35em;
+}
+
+.tagline {
+  font-size:0.8em;
+  font-style:normal;
+  letter-spacing:.2em;
+}
+
+/* Menu */
+
+.sf-menu {
+  top:0;
+  line-height:22px;
+}
+
+.sf-menu a,
+.sf-menu a:visited {
+  padding:9px 13px 4px 13px;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  font-size: 14px;
+  border:none;
+}
+
+.sf-menu a:hover,
+.sf-menu ul {
+  border:none;
+}
+
+.sf-menu .current-menu-item > a,
+.sf-menu .current-menu-parent > a,
+.sf-menu .current-menu-ancestor > a,
+.sf-menu .current-post-ancestor > a,
+.sf-menu .current_page_item > a,
+.sf-menu .current_page_ancestor > a,
+.sf-menu .current_page_parent > a,
+.toggled-on .sf-menu .current-menu-item > a,
+.toggled-on .sf-menu .current-menu-parent > a,
+.toggled-on .sf-menu .current-menu-ancestor > a,
+.toggled-on .sf-menu .current-post-ancestor > a,
+.toggled-on .sf-menu .current_page_item > a,
+.toggled-on .sf-menu .current_page_ancestor > a,
+.toggled-on .sf-menu .current_page_parent > a {
+  border-bottom-color:#fff;
+  font-style: normal;
+}
+
+#menu-top li {
+  display: inline-block;
+  padding: 5px 12px 2px 15px;
+  float:right;
+  margin-top:10px;
+  text-transform:uppercase;
+}
+
+#top-menu {
+  margin-top: -16px;
+}
+
+/* Entry */
+
+.entry-meta,
+.entry-utility {
+  font-style:normal;
+  font-size:14px;
+}
+
+.entry-meta a,
+.entry-utility a {
+  font-style:normal;
+}
+
+.entry-meta .n,
+.entry-meta abbr {
+  text-transform:none;
+  font-size:14px;
+}
+
+
+.home h1.entry-title {
+  display:none;
+}
+
+/* Images */
+
+img.wp-post-image {
+  padding-bottom:15px;
+}
+
+/* Forms */
+
+input#searchsubmit {
+  display:none;
+}
+
+input,
+textarea {
+  border-radius:4px;
+  border:1px solid #ccc;
+  padding-top:10px;
+}
+
+/* Widgets */
+
+
+.left-sidebar .main-aside  {
+  border:none;
+  border-right:1px solid #ccc;
+}
+
+.right-sidebar .main-aside  {
+  border:none;
+  border-left:1px solid #ccc;
+}
+
+.widgettitle {
+  font-style:normal;
+}
+
+/* Footer */
+
+#siteinfo {
+  text-align:center;
+}
