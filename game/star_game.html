@@ -1,0 +1,87 @@
+<!----------------------------
+Name: Des Marks
+ID: 11352911
+Class: Web Dev, Spring 2016
+----------------------------->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CptS 483 - Game</title>
+    <meta charset="UTF-8" />
+
+    <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src="js/game/ScreenWidget.js"></script>
+    <script type="text/javascript" src="js/game/Star.js"></script>
+    <script type="text/javascript" src="js/game/SpaceShip.js"></script>
+    <script type="text/javascript" src="js/game/StarGame.js"></script>
+    <script type="text/javascript" src="js/game/SpaceShipBullet.js"></script>
+    <script type="text/javascript" src="js/game/EnemySpaceShip.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style/game.css"></link>
+
+</head>
+<body id="body" style="margin: 100px;">
+
+<canvas id="canvas" style="position: relative;" width="700px" height="600px">
+  <script>
+      //HELPER: Return the browser width
+      function getWidth(){
+        return window.innerWidth;
+      }
+
+      //HELPER: Return the browser height
+      function getHeight(){
+        return window.innerHeight;
+      }
+
+      //On load function for the game
+      $(document).ready(function(){
+          //Dynamically set width and height
+          //document.getElementById("canvas").width = ;//getWidth();
+          //document.getElementById("canvas").height = "500px";//getHeight();
+
+          //Start game
+          var game = new StarGame(document.getElementById("canvas"), "images/ships.png", "images/enemyShips.png", 10);
+          game.begin();
+      });
+  </script>
+</canvas>
+
+<div id="sidebar" class="sidebar">
+  <h1 id="menu-title">REVENGE OF THE SLOAN</h1>
+
+  <label class="menu-item-label">Lives:</label>
+  <div id="lives" class="lives menu-item"></div>
+
+  <br>
+  <br>
+  <br>
+
+  <label class="menu-item-label">Enemies:</label>
+  <div id="enemies" class="enemies menu-item"></div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div id="status">PLAY!</div>
+
+  <br>
+  <br>
+  <br>
+
+  <button id="restart" class="restart" value="Restart">Restart</button>
+
+  <script>
+    $("#restart").on("click", function(){
+      window.location.reload();
+    });
+  </script>
+</div>
+
+</body>
+</html>
