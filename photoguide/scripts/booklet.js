@@ -5,8 +5,8 @@ var currentP;
 var tabNames = ["Aperture", "Shutter Speed", "ISO", "More"];
 var htmltext = ["", "", "", ""];
 
-htmltext[0] += "<p>Aperture is the hole that controls the amount of light that passes through to reach the camera. Depending on how much light you have available, you’ll want to adjust your aperture accordingly. Use a larger aperture in darker settings with less available light. Use a smaller aperture in brighter settings with more available light.</p>";
-htmltext[0] += "<p>Aperture can also be used to create variation in the depth of field of the photo. A larger aperture value corresponds to a smaller opening. While a smaller aperture value corresponds to a larger opening. </p>";
+htmltext[0] += "<p>Aperture is the hole that controls the amount of light that passes through the lens to reach the camera. Depending on how much light you have available, you’ll want to adjust your aperture accordingly. Use a larger aperture in darker settings with less available light. Use a smaller aperture in brighter settings with more available light.</p>";
+htmltext[0] += "<p>Aperture can also create variation in the depth of field of the photo. A larger aperture corresponds to a smaller opening. With a smaller aperture, your photo will have a shallower depth of field.</p>";
 htmltext[0] += "<br>";
 htmltext[0] += "<img src='images/aperture_sizes.jpeg'></img>"
 htmltext[0] += "<p>With a larger aperture value, your photo will have a greater depth of field. With a smaller aperture value, your photo will have a more shallow depth of field. See if you can notice the change in the depth of field as the aperture changes in the photos below.</p>";
@@ -20,8 +20,8 @@ htmltext[0] += "<br>"
 htmltext[0] += "<p>Think about how you would adjust your aperture given these situations:</p>";
 htmltext[0] += "<ol><li>A portrait of your friend on a sunny day</li><li>In a dark alley way with very little incoming light</li><li>In a football stadium at night</li><li>Your dog is in midair trying to catch a frisbee</li><li>You want to capture the movement of the stars</li></ol>";
 
-htmltext[1] += "<p>Shutter speed is the amount of time light is allowed into the camera. Depending on how much available light you have, you'll want to adjust your shutter speed accordingly. Use a slower shutter speed in darker settings to allow more light into the camera. User a faster shutter speed in brighter settings to allow less light into the camera.</p>";
-htmltext[1] += "<p>Remember that if you shoot at too slow of shutter speed you may encounter blur, or your photo may be too bright. Too faster of a shutter speed and your photo may be too dark.</p>";
+htmltext[1] += "<p>Shutter speed is the amount of time light is allowed into the camera. Depending on how much available light you have, you'll want to adjust your shutter speed accordingly. Use a slower shutter speed in darker settings to allow more light into the camera. Use a faster shutter speed in brighter settings to allow less light into the camera.</p>";
+htmltext[1] += "<p>Remember that if you shoot at too slow of shutter speed you may encounter blur, or your photo may be too bright. Too fast of a shutter speed and your photo may be too dark.</p>";
 htmltext[1] += "<p>Below are 3 different photos of the same person running, each photo is shot at a progressively faster shutter speed. See if you can notice the effects of shutter speed on the photo.</p>";
 htmltext[1] += "<br>";
 htmltext[1] += "<img src='images/run_slow.jpg'></img><p>1/15 of a second shutter speed. Notice that the subject is in focus but the background is blurred out due to the slow shutter speed.</p>";
@@ -33,7 +33,7 @@ htmltext[1] += "<br>";
 htmltext[1] += "<p>Think about how you would adjust your shutter speed given these situations:</p>";
 htmltext[1] += "<ol><li>Outside on a sunny day</li><li>In a dark alley way with very little incoming light</li><li>In a football stadium at night</li><li>Your dog is in midair trying to catch a frisbee</li><li>You want to capture the movement of the stars</li></ol>";
 
-htmltext[2] += "<p>ISO is the measure of how sensitive your camera is to the available light. Think of ISO as servants who collect light for you.  The higher the ISO, the more servants you have to collect light and make your image brighter.  Using too many servants, however, will make them appear in your photograph as grain or noise. Depending on your setting adjust your ISO accordingly. In a setting with more available light use a lower ISO value. In a setting with less available light use a higher ISO value.</p>";
+htmltext[2] += "<p>ISO is the measure of how sensitive your camera is to the available light. Think of ISO as servants who collect light for you.  The higher the ISO, the more servants you have to collect light and make your image brighter.  Using too many servants, however, will make them appear in your photograph as grain or noise. Adjust your ISO accordingly based on the amount of light. In a setting with more available light use a lower ISO value. In a setting with less available light use a higher ISO value.</p>";
 htmltext[2] += "<p>The photos below were taken in a in a library with little available light. The aperture in all of these photos stays constant. See if you can notice the relationship between the value of the ISO and shutter speed as well as the amount of grain in each photo.</p>";
 htmltext[2] += "<br>";
 htmltext[2] += "<img src='images/iso_320.jpg'></img><p>ISO 320, 1/200 of a second - This photo should have the least amount of grain since it was shot at the lowest ISO.</p>";
@@ -47,8 +47,8 @@ htmltext[2] += "<ol><li>Outside on a sunny day</li><li>In a dark alley way with 
 
 htmltext[3] += "<p>Creating the most visually appealing photos is a balancing act of Shutter Speed, Aperture, and ISO. Below are two examples on how to do so.</p>";
 htmltext[3] += "<br>";
-htmltext[3] += "<img src='images/football.jpg'></img><p></p><p>This photo was taken during the 2015 Apple Cup. At the time of this photo the sun was behind the stadium, decreasing the amount of available light. Using a slower shutter speed was not an option because we wanted to capture the motion of the players. So in order to correct for this, a high ISO was used to increase the camera sensitivity to the available light. Thus permitting a faster shutter speed. Finally a large aperture was used to create a shallow depth of field in between the player and the background and to allow more light into the sensor. </p>";
-htmltext[3] += "<img src='images/lights.jpg'></img><p>Lights - ISO 100, 29mm, F22, 30.0 Seconds</p><p>In this photo we are trying to capture the movement of the car light. Using a low ISO allows us to use a longer shutter speed and keeps the photo from looking grainy. In order to achieve the trail of the light, the shutter speed should be at least 5 seconds to capture the movement of the car through the entire frame. Finally, using a large aperture will allow the camera to take in the maximum amount of available light.</p>";
+htmltext[3] += "<img src='images/football.jpg'></img><p>Football - ISO 800, F2.8, 1/1250 Seconds</p><p>This photo was taken during the 2015 Apple Cup. At the time of this photo the sun was behind the stadium, decreasing the amount of available light. Using a slower shutter speed was not an option because we wanted to capture the motion of the players. So in order to correct for this, a high ISO was used to increase the camera sensitivity to the available light, thus permitting a faster shutter speed. A large aperture was also used to create a shallow depth of field in between the player and the background and to allow more light into the sensor. </p>";
+htmltext[3] += "<img src='images/lights.jpg'></img><p>Lights - ISO 100, F22, 30.0 Seconds</p><p>In this photo we are trying to capture the movement of the car light. Using a low ISO allows us to use a longer shutter speed and prevents the photo from looking grainy. The shutter speed should be at least 5 seconds to capture the trail of light caused by the movement of the car through the frame. Finally, using a large aperture allows the camera to take in the maximum amount of available light.</p>";
 
 
 
