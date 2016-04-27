@@ -36,6 +36,22 @@ h1{
   padding-top: 3%;
 }
 
+h2{
+  color: white;
+
+  z-index: 1;
+
+  position: relative;
+
+  font-family: 'Arial Narrow', Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 500;
+  line-height: 26.4px;
+
+  padding-left: 15%;
+}
+
 div{
   margin: 0px;
   color: black;
@@ -48,20 +64,14 @@ img{
 
 p{
   text-align: left;
-  width: 50%;
-  margin-left: 25%;
+  width: 70%;
+  margin-left: 15%;
 }
 
 ol, ul{
   text-align: left;
   width: 50%;
   margin-left: 23%;
-}
-
-caption{
-  text-align: left;
-  width: 50%;
-  margin-left: 25%;
 }
 
 #book{
