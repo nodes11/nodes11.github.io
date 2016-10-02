@@ -1,0 +1,203 @@
+h1{}
+
+h2{}
+
+h3{}
+
+body{
+  width: 80%;
+  height: 70%;
+
+  top: 20%;
+
+  margin-left: 11%;
+  margin-right: 15%;
+
+
+  color: #000;
+
+  position: relative;
+}
+
+footer{
+
+  position: fixed;
+
+  width: 100%;
+  left: 0;
+  bottom: 1px;
+
+  background-color: #FFFFFF;
+}
+
+.foot-item{
+  padding-top: 1%;
+
+  font-family: Raleway;
+  font-size: 12pt;
+  width: 100%;
+}
+
+.foot-link{
+  float: left;
+  display: inline;
+
+  margin-right: 0%;
+  margin-left: 3%;
+  font-family: Raleway;
+  font-size: 12pt;
+
+  width: 20%;
+}
+
+nav{
+  color: black;
+
+  left: 0;
+  top: 0;
+
+
+  width: 100%;
+
+  font-family: Raleway;
+  font-variant: small-caps;
+  font-size: 28pt;
+  font-weight: 900;
+
+  margin-left: 1%;
+
+
+  position: fixed;
+
+  z-index: 2;
+
+  align-content: center;
+
+  background-color: #FFFFFF;
+}
+
+p{
+  font-family: Garamond;
+  font-size: 15pt;
+  width: 80%;
+  margin-left: 0%;
+
+  text-align: center;
+}
+
+.center-font{
+  vertical-align: middle;
+  margin-left: 10%;
+}
+
+.content-header{
+  font-family: Garamond;
+  width: 55%;
+  margin-left: 5%;
+}
+
+.left-font{
+  text-align: left;
+}
+
+a{
+  color: black;
+  text-decoration: none;
+}
+
+img{
+  border-radius: 50%;
+  display: block;
+}
+
+.hamburger-photo{
+  position: fixed;
+
+  margin-right: 1%;
+
+  right: -4%;
+  top: -.4%;
+
+  vertical-align: middle;
+}
+
+.left-side{
+  float: left;
+  margin-left: 5%;
+}
+
+.right-side{
+  float: right;
+  margin-right: 5%;
+}
+
+.center{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+Dropdown menu
+*/
+.dropdown{
+  float: right;
+  width: 32%;
+  height: auto;
+
+  display: inline;
+
+  z-index: 2;
+
+  position: fixed;
+
+  top: 5.8%;
+  right: 0;
+
+  margin-right: 0px;
+
+  display: none;
+}
+
+.dropdown-item{
+  font-family: Raleway;
+  font-variant: small-caps;
+  font-size: 20pt;
+
+  height: 20%;
+
+  border: 1px solid #D3D3D3;
+
+  text-align: right;
+
+  padding-right: 5%;
+
+
+  background-color: #FFFFFF;
+  z-index: 4;
+}
+
+.dropdown-item:hover{
+  background-color: #D3D3D3;
+  cursor: pointer;
+}
+
+/**
+Content Properties
+*/
+.content-text{
+  margin-top: 8%;
+
+}
+
+.time{
+  font-family: Raleway;
+  font-size: 12pt;
+}
+
+.header-line{
+  margin-left: -1%;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-color: #FFFFFF;
+}

@@ -1,235 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+  <link type="text/css" rel="stylesheet" href="style/style.css">
+  <link href='https://fonts.googleapis.com/css?family=Raleway:400' rel='stylesheet' type='text/css'>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <script src="scripts/jquery-1.12.1.min.js"></script>
+  <script src="scripts/main.js"></script>
 
-    <title>Des Marks || Washington State University</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/one-page-wonder.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+  <title>Des Marks</title>
 </head>
 
+
+<div class="dropdown list">
+  <a href="#Projects"><div class="dropdown-item">Projects</div></a>
+  <a href="#Experience"><div class="dropdown-item">Experience</div></a>
+  <a href="pages/photos.html"><div class="dropdown-item">Photography</div></a>
+  <a href="content/Resume.pdf"><div class="dropdown-item">Resume</div></a>
+</div>
+
 <body>
+  <nav id="menu-nav-bar" class="nav-bar nav header-bar" style="background-color: #FFFFFF;">
+    <a href="index.html"><div style="width: 50%;">Des Marks</div></a>
+    <img class="right-side hamburger menu hamburger-photo" style="border-radius: 0;" src="images/hamburger.png">
+    <hr class="header-line">
+  </nav>
+  <div id="Welcome">
+    <div class="textbox">
+      <img class="center feature-photo" style="margin-top: 13%;"src="images/me.jpg">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Des Marks</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="index.html#about">About</a>
-                    </li>
-                    <li>
-                        <a href="index.html#programming">Programming</a>
-                    </li>
-                    <li>
-                      <a href="index.html#projects">Projects</a>
-                    </li>
-                    <li>
-                      <a href="index.html#experience">Experience</a>
-                    </li>
-                    <li>
-                      <a href="http://www.flickr.com/dm_11">Photography</a>
-                    </li>
-                    <li>
-                      <a href="Resume.pdf">Résumé</a>
-                    </li>
-                    <li>
-                      <a href="index.html#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+      <p class="center-font">      Hi, I'm Des Marks. I grew up in Seattle Washington and I enjoy golf, photography and programming.</p>
+      <br>
+      <p class="center-font">I will be graduating from Washington State University with a degree in Computer Science. I am currently working at Amazon as an intern on the Kindle iOS team.</div>
 
-    <!-- Full Width Image Header -->
-    <header class="header-image">
-        <div class="headline">
-            <div class="container">
-                <h1><center><span class="highlight">Des Marks</span></center></h1>
-                <h2><center><span class="highlight">Software Engineering</span></center></h2>
-                <h2><center><span class="highlight">Washington State University</span></center></h2>
-            </div>
-        </div>
-    </header>
-
-    <!-- Page Content -->
-    <div class="container">
-
-        <hr class="featurette-divider">
-
-        <!-- First Featurette -->
-        <div class="featurette" id="about">
-            <img class="featurette-image img-circle img-responsive pull-right" src="images/about.jpg">
-            <h2 class="featurette-heading">About Me
-                <!--<span class="text-muted">Will Catch Your Eye</span>-->
-            </h2>
-            <p class="lead">
-              Growing up in Poulsbo, Washington, I attended North Kitsap High School and graduated with honors in 2012. In high school I took multiple engineering focused classes which helped grow my interest in technology.
-            </p>
-            <p class="lead">
-              I am currently a senior at Washington State University working on my Bachelors of Science in Computer Science. I am an active member in the Voiland College of Engineering and Architecture and have worked as a Teaching Assistant, a Technical Assistant, and volunteered as the secretary of the Computer Security Group. Outside the Voiland College I have worked for the Daily Evergreen as a Developer and as the head Photo Editor.
-            </p>
-            <p class ="lead">
-              Outside of work and school I enjoy golf, photography, and volunteering with a development group called Flash Volunteer.
-            </p>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <!-- Second Featurette -->
-        <div class="featurette" id="programming">
-            <img class="featurette-image img-circle img-responsive pull-left" src="images/program.jpg">
-            <h2 class="featurette-heading">Programming</h2>
-            <p class="lead"><!--My first experience with programming was teaching myself TI-Basic on my graphing calculator during my Algebra II class my sophmore year of high school. <br> <br>--> In the classroom most of my work has been completed in C, C++, C# and Python. Outside of class I have taught myself HTML, CSS, Javascript, Ruby and Objective C. I have been able to apply this knowledge by working with a volunteer web development group and with other various university related jobs. </p>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <!-- Third Featurette -->
-        <div class="featurette" id="projects">
-            <h2 class="featurette-heading">Projects</h2>
-            <p class="lead"></p>
-            <li><b>Universal Map Filtering - </b>
-              A JavaScript application that allows the user to create a Leaflet based map with multiple filters. Each filter interacts with one another allowing for a more precise breakdown of the data being represented.
-              <a href="/Apartments/index.html">Demo 1</a>, <a href="http://despecialreport.com/coffee">Demo 2</a>, <a href="https://github.com/nodes11/Advanced-Leaflet-Filtering">Github</a>
-            </li>
-            <br>
-            <li><b>EXT2 Filesystem Simulator - </b>
-              Simulates the command line for an EXT2 filesystem.
-              <a href="https://github.com/nodes11/CS-360/tree/master/Project">Github</a>
-            </li>
-            <br>
-            <li><b>Map RSS - </b>
-              A WPF application that allows the user to subscribe to RSS feeds and view them in three different views. Our team won "Best Code Design".
-              <a href="https://github.com/nodes11/Map-RSS">Github</a>
-            </li>
-            <br>
-            <li><b>Spreadsheet - </b>
-                A C# implementation of a spreadsheet with features that include cell referencing, evaluation of simple and complex expressions, redo and undo features, load and save functionality, and cell design.
-                <a href="https://github.com/nodes11/Spreadsheet">Github</a>
-            </li>
-            <br>
-            <li><b>Gravitational Field Simulation - </b>
-                A C# application that allows simulates the planets and their gravitational fields using basic graphics included in .NET framework.
-                <a href="https://github.com/nodes11/Gravitational-Fields">Github</a>
-            </li>
-            <br>
-            <li><b>Number Scramble - </b>
-                An iPhone application in Objective C where the user looks through 50 random numbers for a single specified number in a five second time period. The user wins after they find 100 numbers in a row.
-                <a href="https://github.com/nodes11/Number-Scramble-iPhone-App">Github</a>
-            </li>
-            <br>
-            <li><b>C and C++ Data Structures - </b>
-                A templated expose of the basic linked list based data structures in C and C++.
-                <br>
-                <a href="https://github.com/nodes11/C-AVL-Tree">Github C AVL</a>, <a href="https://github.com/nodes11/C-AVL-Tree">Github C Vector</a>, <a href="https://github.com/nodes11/C-AVL-Tree">Github C++ Data Structures</a>
-            </li>
-            <br>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <!-- Third Featurette -->
-        <div class="featurette" id="experience">
-            <h2 class="featurette-heading">Experience</h2>
-            <li><b>The Daily Evergreen – <i>Photo Editor</i> – (June 2015-Present)</b>
-              <br>
-              Oversees the hiring and management of photographers, holds weekly section meetings, aids in the design and layout of the newspaper, and edits all photos that are used by the paper.
-            </li>
-            <br>
-            <li><b>Flash Volunteer (Volunteer) – <i>Developer</i> – (March 2015-Present)</b>
-              <br>
-              Updates and maintains the front-end features of the website using JavaScript, Ruby on Rails and MySQL.
-              <br>
-              <a href="www.flashvolunteer.org">Website</a>
-            </li>
-            <br>
-            <li><b>Washington State University - <i>Technical Assistant III</i> – (May 2015-August 2015)</b>
-              <br>
-              Worked on integrating Deter into the EECS testbed and started working on research involving the security behind the Secure Boot feature enabled by the UEFI BIOS setting on Intel processors.
-            </li>
-            <br>
-            <li><b>The Daily Evergreen – <i>Developer</i> - (January 2015-August 2015)</b>
-              <br>
-              Main developer for a map filtering application that uses the Leaflet mapping API, and helped in the building of websites.
-            </li>
-            <br>
-            <li><b>Computer Security Group (Volunteer) – <i>Secretary</i> – (September 2014-May 2015)</b>
-              <br>
-              Helped organize and lead bi-monthly meetings.
-            </li>
-            <br>
-            <li><b>Washington State University – <i>Teaching Assistant</i> – (August 2014-December 2014)</b>
-              <br>
-              Held a lab section once per week to teach and help students understand the principles behind basic data structures and was responsible for grading assignments, quizzes and exams.
-            </li>
-            <br>
-            <li><b>Northwest Golf Range – <i>Cashier</i> – (May 2010-August 2014)</b>
-              <br>
-              Gained experience with general customer service, managing tills, and opening and closing procedures.
-            </li>
-            <br>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <!-- Footer -->
-        <footer>
-            <div class="row" id="contact">
-                <div class="col-lg-12">
-                    <address>
-                      <a href="mailto:des.marks@email.wsu.edu">des.marks@email.wsu.edu</a>
-                      <br>
-                      <a href="https://www.linkedin.com/in/desmarks">LinkedIn</a>
-                      <br>
-                      <a href="https://www.github.com/nodes11">Github</a>
-                    </address>
-                    <p>Copyright &copy; Des Marks 2015</p>
-                </div>
-            </div>
-
-<script type="text/javascript" src="http://counter1.fcs.ovh/private/counter.js?c=2857c650a8cae1d0d9f5aa99281cde7b"></script>
-        </footer>
-
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="Projects">
+    <br>
+    <br>
+    <div class="textbox content-text">
+      <h1 class="content-header">Projects</h1>
+      <h2 class="content-header">Leaflet Filtering</h2>
+      <p class="left-font">A leaflet API that allows users to better filter their location based datasets.</p>
+      <h2 class="content-header">EXT2 Filesystem Simulator</h2>
+      <p class="left-font">Simulates the core functionalities of the a Linux EXT2 filesystem.</p>
+      <h2 class="content-header">MTX Shell</h2>
+      <p class="left-font">Includes the sh, login, cat, cp, more, l2u and grep programs for the Linux based MTX operating system.</p>
+      <h2 class="content-header">TCP Chat Client</h2>
+      <p class="left-font">A simple, multi-user chat client programmed in Go.</p>
+      <p class="left-font">Checkout more projects on my <a href="https://github.com/nodes11">Github</a>.</p>
+  </div>
+  <br>
+  <br>
+  </div>
+  <div id="Experience">
+    <br>
+    <br>
+    <div class="textbox content-text">
+      <h1 class="content-header">Experience</h1>
+      <h1 class="content-header">Projects</h1>
+      <h2 class="content-header">Leaflet Filtering</h2>
+      <p class="left-font">A leaflet API that allows users to better filter their location based datasets.</p>
+      <h2 class="content-header">EXT2 Filesystem Simulator</h2>
+      <p class="left-font">Simulates the core functionalities of the a Linux EXT2 filesystem.</p>
+      <h2 class="content-header">MTX Shell</h2>
+      <p class="left-font">Includes the sh, login, cat, cp, more, l2u and grep programs for the Linux based MTX operating system.</p>
+      <h2 class="content-header">TCP Chat Client</h2>
+      <p class="left-font">A simple, multi-user chat client programmed in Go.</p>
+      <p class="left-font">Checkout more projects on my <a href="https://github.com/nodes11">Github</a>.</p>
     </div>
-    <!-- /.container -->
-
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-
+    <br>
+    <br>
+  </div>
+  <footer>
+    <hr class="header-line">
+    <div class="foot-item">
+      <a href="https://github.com/nodes11"><p class="foot-link">Github</p></a>
+      <a href="https://www.linkedin.com/in/desmarks"><p class="foot-link">LinkedIn</p></a>
+      <a href="mailto:"><p class="foot-link">Email</p></a>
+      <p class="foot-link time"></p>
+    </div>
+    <br>
+    <br>
+    <br>
+  </footer>
 </body>
 </html>
