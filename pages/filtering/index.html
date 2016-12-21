@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Pullman Housing</title>
+
+    <!-- Leaflet 0.5: https://github.com/CloudMade/Leaflet-->
+     <link rel="stylesheet" href="lib/leaflet.css" />
+     <!--[if lte IE 8]> <link rel="stylesheet" href="lib/leaflet.ie.css" />  <![endif]-->
+    <script src="lib/leaflet.js"></script>
+
+    <!-- GeoCSV: https://github.com/joker-x/Leaflet.geoCSV -->
+    <script src="scripts/leaflet.geocsv-src.js"></script>
+
+    <!-- Active Layers -->
+    <script src="scripts/ActiveLayers.js"></script>
+
+		<!-- Button Plugin -->
+		<script src = "scripts/L.Control.Button.js"></script>
+
+    <!-- Sidebar Plugin -->
+    <link rel="stylesheet" href="css/L.Control.Sidebar.css">
+    <script src="scripts/L.Control.Sidebar.js"></script>
+
+		<script src="scripts/jquery-1.11.3.min.js"></script>
+
+		<link rel="stylesheet" href="css/MyStyle.css">
+
+		<script src="scripts/Functions.js"></script>
+
+  </head>
+
+	<body>
+		<textarea id='Data'></textarea>
+
+    <div id="map"></div>
+		<button id="resetButton" role="button" class="btn btn-primary">Reset</button>
+		<button id="helpbutton" role="button" class="btn btn-primary">Map Key</button>
+    <div id="sidebar" class="resize">
+        <h1><font size="7"><b>Map Key</b></font></h1>
+
+					<img src="lib/images/marker-icon_red.png" alt="Red Marker" class="resize"><font size="5"> Commercial Apartment</font>
+					<br>
+					<img src="lib/images/marker-icon.png" alt="Blue Marker" class="resize"><font size="5"> University Apartment</font>
+					<br>
+					<img src="lib/images/marker-icon_gray.png" alt="Gray Marker" class="resize"><font size="5"> Residence Hall</font>
+					<br>
+
+				<li><p><font size="5">Click the filters you want to apply in the control on the right hand side the page.</font></p></li>
+				<li><p><font size="5">If you want to view more information on a specific location click on the marker.</font></p></li>
+				<li><p><font size="5">Note that some of the monthly prices are per person, while some are the total montly cost.</font></p></li>
+
+    </div>
+
+    <script>
+          heightAdjustment();
+
+          var ColorIcon = L.Icon.extend({options: {shadowUrl: 'lib/images/marker-shadow.png'}});
+          var purpleIcon = new ColorIcon({iconUrl: 'lib/images/marker-icon_purple.png'}),
+              redIcon = new ColorIcon({iconUrl: 'lib/images/marker-icon_red.png'}),
+              greenIcon = new ColorIcon({iconUrl: 'lib/images/marker-icon_green.png'}),
+              grayIcon = new ColorIcon({iconUrl: 'lib/images/marker-icon_gray.png'}),
+              lightgrayIcon = new ColorIcon({iconUrl: 'lib/images/marker-icon_lightgray.png'}),
+              blueIcon = new ColorIcon({iconUrl: 'lib/images/marker-icon.png'});
+
+          //We will define the base layers (satilite and road
+          var satilite = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {maxZoom: 19});
+          var road = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'}, {maxZoom: 19});
+					//Define our layer catagories
+          var Base = {
+							"Road": road,
+              "Satellite": satilite
+          };
+
+          //Define the map, set the base location, and add layer
+          var map = L.map('map', {attributionControl:false});
+					map.setView([46.723,-117.16500], 14);
+          map.addLayer(road);
+
+					//Corporation,Type,Address,Phone,lat,lng,1 Bedroom,2 Bedroom,3 Bedroom,Single Bathroom,Multi Bathroom,Has A.C.,Price
+
+          //Once the CSV data has been parsed will make layers depending on catagories
+          var allLayers = [];
+					var tflayers = [];
+					var valueLayers = [];
+
+
+/*****************************************************************************************************************************************************************
+																		U   U    SSS   EEEE    RRRRR        IIIIIII   NN   N    PPPPP   U    U   TTTTT
+																		U   U    S     E       R   R           I      N N  N    P   P   U    U     T
+																		U   U    SSS   EEEE    RRRRR           I      N  N N    PPPPP   U    U     T
+																		U   U      S   E       R R             I      N   NN    P       U    U     T
+													           UUU     SSS   EEEE    R   R        IIIIIII   N    N    P        UUUU      T
+
+At the most basic level, the only input a user will have to do is input the names of the desired layers. These names should come directly from the catagories of your
+CSV file. For example:
+
+
+Apartment Name,Corporation,Type,Address,Phone,lat,lng,1 Bedroom,2 Bedroom,3 Bedroom,Single Bathroom,Multi Bathroom,Has A.C.,Price
+Chief Joseph Village,Washington State University,University Apartment,2025 NE Terre View Dr,,46.742963,-117.155039,y,n,,,,,
+
+If the the first line represents the column titles for the CSV and the second line an entry from the CSV and I wanted to create layers for the number of bedrooms and
+the type of Apartment then the code would look like this:
+
+* tflayers represents all of the layers that are determined by a true or false property. In this case you would copy the exact text from the 1, 2, 3 bedroom column titles,
+and paste it in between the quotations inside the push method.
+
+CODE:
+tflayers.push("1 Bedroom");
+tflayers.push("2 Bedroom");
+tflayers.push("3 Bedroom");
+
+* valueLayers represents all of the layers that are determined by a string (i.e. him, her, they). When inputing these, there are two properites you must include. The first
+is a type. The type is just a general catagory that encapsulates all of the possible options (the column title would be good option). The next property is the title. The title
+should be one of the CSV entries for the column youre dealing with.
+
+CODE:
+valueLayers.push({type:"Type", title:"Commercial Apartment"});
+valueLayers.push({type:"Type", title:"University Apartment"});
+valueLayers.push({type:"Type", title:"Residence Hall"});
+
+*****************************************************************************************************************************************************************/
+
+					valueLayers.push({type:"Type", title:"Commercial Apartment"});
+					valueLayers.push({type:"Type", title:"University Apartment"});
+					valueLayers.push({type:"Type", title:"Residence Hall"});
+
+					tflayers.push({set:"1", title:"1 Bedroom"});
+					tflayers.push({set:"1", title:"2 Bedroom"});
+					tflayers.push({set:"1", title:"3 Bedroom"});
+					tflayers.push({set:"1", title:"4+ Bedroom"});
+
+					tflayers.push({set:"2", title:"Communal Bathroom"});
+					tflayers.push({set:"2", title:"Single Bathroom"});
+					tflayers.push({set:"2", title:"Multi Bathroom"});
+
+					tflayers.push({set:"3", title:"Air Conditioning"})
+
+					tflayers.push({set:"4",title:"Pets"});
+
+					valueLayers.push({type:"Laundry", title:"Communal Laundry"});
+					valueLayers.push({type:"Laundry", title:"In Room Laundry"});
+
+					tflayers.push({set:"5",title:"Transportation"});
+
+
+
+
+
+
+/*****************************************************************************************************************************************************************/
+
+          //These layers are used temporarily to show different filtering options
+          var tempLayer = L.layerGroup(); // Transition layer
+          var currLayers = L.layerGroup(); // Contains all currently selected layers in control
+					var baseOverlay = L.layerGroup();
+
+/**********************************************************************Add and remove events*****************************************************************/
+          //Overlayremove event
+          map.on('overlayremove', function(){
+
+              //Set all baselayer markers to visible
+              baseOverlay.eachLayer(function(layer){
+                  layer.setOpacity(1);
+              });
+
+              //Get all active layers
+							currLayers = layerControl.getActiveOverlayLayers();
+
+              //If there are no layers applied
+              if (Object.keys(currLayers).length == 0){
+                 //Remove and readd the baseoverlay
+                 map.removeLayer(baseOverlay);
+                 map.addLayer(baseOverlay);
+                 createBaseValueLayers();
+                 createTFBases();
+              }
+              //If there are layers still applied
+              else{
+                 var valueCount = 0;
+								 var tfcount = 0;
+
+                 var needsFiltering = false;
+								 var isSorted = false;
+
+
+								 //Go through all applied layers
+		             for (var overlay in currLayers){
+										for (var item in valueLayers){
+											if (valueLayers[item].title == currLayers[overlay]["name"]){
+													valueCount += 1;
+													if (valueCount > 0 || tfcount > 0) needsFiltering = true;
+													isSorted = true;
+													break;
+											}
+										}
+										if (isSorted == false){
+											for (var item in tflayers){
+												if (tflayers[item].title == currLayers[overlay]["name"]){
+													tfcount += 1;
+													if (valueCount > 0 || tfcount > 0) needsFiltering = true;
+													isSorted = true;
+													break;
+												}
+											}
+										}
+
+										//Add each marker in each layer to the map
+										currLayers[overlay]["layer"].eachLayer(function(layer){
+												map.addLayer(layer);
+										});
+
+										isSorted = false;
+									}
+
+								 //Reset Value base layers
+                 createBaseValueLayers();
+                 createTFBases();
+                 //CRUCIAL
+                 if (needsFiltering == true){
+                      filterstuff();
+                 }
+							}
+          });
+          //Overlayadd event
+          map.on('overlayadd', function(){
+             //Remove the base layer
+             map.removeLayer(baseOverlay);
+
+             //Get the currently applied layers
+             currLayers = layerControl.getActiveOverlayLayers();
+						 //Needed to check for filtering
+             var valueCount = 0;
+						 var tfcount = 0;
+             var needsFiltering = false;
+						 var isSorted = false;
+
+             //Go through all applied layers
+             for (var overlay in currLayers){
+								for (var item in valueLayers){
+									if (valueLayers[item].title == currLayers[overlay]["name"]){
+											valueCount += 1;
+											if (valueCount > 1 || tfcount > 0) needsFiltering = true;
+											isSorted = true;
+											break;
+									}
+								}
+								if (isSorted == false){
+									for (var item in tflayers){
+										if (tflayers[item].title == currLayers[overlay]["name"])
+										{
+											tfcount += 1;
+											if (valueCount > 0 || tfcount > 1) needsFiltering = true;
+											isSorted = true;
+											break;
+										}
+									}
+								}
+
+								//Add each marker in each layer to the map
+								currLayers[overlay]["layer"].eachLayer(function(layer){
+										map.addLayer(layer);
+								});
+
+								isSorted = false;
+							}
+
+             //CRUCIAL
+             if (needsFiltering == true){
+                  filterstuff();
+             }
+          });
+          /**********************************************************************Creates the base instance of the map*****************************************************************/
+          //This works as a constructor for the csv parser
+          var mapCsv = L.geoCsv(null,{
+            //Will be adding involvement of drugs
+            fieldSeparator: ',',
+            lineSeparator: '\n',
+            deleteDobleQuotes: false,
+            firstLineTitles: true,
+            onEachFeature: function (feature, layer) {
+              var popup = '';
+              for (var key in feature.properties) {
+									var title = mapCsv.getPropertyTitle(key);
+									if (title != "Pets" && feature.properties[key] != "No"){
+										if (title == "Price" && feature.properties[key] != "N/A"){
+											t = feature.properties[key]
+											t = parsePrice(t);
+											popup += '<b>'+title+':'+' '+'</b>'+t+" per month"+'<br />';
+										}
+										else{
+											popup += '<b>'+title+':'+' '+'</b>'+feature.properties[key]+'<br />';
+										}
+									}
+									else if (title == "Pets") {
+										popup += '<b>'+title+':'+' '+'</b>'+feature.properties[key]+'<br />';
+									}
+
+									if (feature.properties[key] == "University Apartment"){layer.setIcon(blueIcon);}
+									if (feature.properties[key] == "Residence Hall"){layer.setIcon(grayIcon);}
+									if (feature.properties[key] == "Commercial Apartment"){layer.setIcon(redIcon);}
+              }
+              //Apply the popup to the marker
+              layer.bindPopup(popup);
+              //Add the marker to the baseOverlay
+              baseOverlay.addLayer(layer);
+            }
+          });
+
+					//JQuery to open file and save contents to the data var
+			    $.get('data.csv', function(data) {
+							document.getElementById('Data').value = data;
+							//Send the var to the parser provided by GeoCSV (Check them out on Github)
+			      	mapCsv.addData(document.getElementById('Data').value, tflayers, valueLayers);
+
+							//Will add the layers to the map control
+							createCustomLayers();
+							//Create all of our base TF layers
+		          createTFBases();
+							//Create all of the value type bases
+							createBaseValueLayers();
+			    }, "text");
+
+
+					//Apply the points
+          map.addLayer(baseOverlay);
+
+          //Make the layer control for switching the layers
+        	//If the user is on a mobile device, then we will want the controll collapsed so that they can see more
+					//of the map. Otherwise, we will leave it open.
+					var controlStyle = window.matchMedia('all and (min-width: 1025px)');
+					if(controlStyle.matches) {
+						var layerControl = L.control.activeLayers(Base, null,{collapsed: false}).addTo(map);
+					} else {
+					  var layerControl = L.control.activeLayers(Base, null,{collapsed: true}).addTo(map);
+					}
+
+					//Sidebar created by L.Control.Sidebar (check them out on Gitbub)
+					//Make the sidebar to display the 'about'
+          var sidebar = L.control.sidebar('sidebar', {position: 'left'}).addTo(map);
+
+					//Declares, adds and sets the functionality for the help button
+					var resetButton = new L.Control.Button(L.DomUtil.get('resetButton')).addTo(map);
+					resetButton.on('click', function () {
+							location.reload();
+							window.scrollTo(0,0);
+					});
+
+					//Declares, adds and sets the functionality for the help button
+					var helpButton = new L.Control.Button(L.DomUtil.get('helpbutton')).addTo(map);
+					helpButton.on('click', function () {
+						//The built in toggling is kind of stupid, so I made my own.
+						var visible = sidebar.isVisible();
+						if (visible == true){
+							sidebar.hide();
+						} else {
+							sidebar.show();
+						}
+					});
+
+					/**********************************************************************Dumb stuff. Dont't touch.*****************************************************************/
+					//Needed for the nested div area within the control to enable scrolling
+					var container = document.getElementsByClassName("leaflet-control-layers")[0];
+					if (!L.Browser.touch) {
+					  L.DomEvent
+					    .disableClickPropagation(container)
+					    .disableScrollPropagation(container);
+					} else {
+					  L.DomEvent.disableClickPropagation(container);
+					}
+					//Set the window back to the correct position when the user clicks refresh
+					window.onbeforeunload = function(e) {
+					  window.scrollTo(0,0);
+					};
+      </script>
+	</body>
+</html>
