@@ -4,15 +4,15 @@ $(document).ready(function(){
   var withWho = "";
   var when = "";
 
-  var selectedDate = new Date(2016, 11, 25, 0, 0, 0, 0);
+  var selectedDate = new Date(2016, 11, 24, 0, 0, 0, 0);
   var now = new Date();
   now.setHours(0,0,0,0);
-  if (selectedDate < now) {
+  //if (selectedDate < now) {
       Q1();
-  }
-  else {
-    $("#question").text("It's not Christmas Yet!!!");
-  }
+  //}
+  //else {
+  //  $("#question").text("It's not Christmas Yet!!!");
+  //}
 
   function Q1 ()
   {
