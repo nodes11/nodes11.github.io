@@ -14,12 +14,15 @@ body{
 }
 
 .foot-item{
-  text-align: center
+  text-align: center;
+  font-family: Raleway;
+  font-size: 12pt;
 }
-
 
 .foot-link{
   display: inline;
+  font-family: Raleway;  
+  font-size: 12pt;
   padding: 10px; 
 }
 
@@ -33,6 +36,7 @@ p{
 }
 
 .center-font{
+  font-family: Raleway;  
   vertical-align: middle;
   margin-left: 23%;
 }
